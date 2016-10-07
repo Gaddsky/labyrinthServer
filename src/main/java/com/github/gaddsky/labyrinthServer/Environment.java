@@ -14,14 +14,14 @@ public class Environment {
         this.westWall = westWall;
     }
 
-    public Environment(int cellState) {
+    public Environment(byte cellState) {
         if (cellState > 0b1111) {
             throw new IllegalArgumentException("Illegal cell state! Only four bits allowed");
         }
-            this.northWall = (cellState & 0b1000) > 0;
-            this.eastWall = (cellState & 0b0100) > 0;
-            this.southWall = (cellState & 0b0010) > 0;
-            this.westWall = (cellState & 0b0001) > 0;
+        this.northWall = (cellState & 0b1000) > 0;
+        this.eastWall = (cellState & 0b0100) > 0;
+        this.southWall = (cellState & 0b0010) > 0;
+        this.westWall = (cellState & 0b0001) > 0;
     }
 
     public boolean isNorthWall() {

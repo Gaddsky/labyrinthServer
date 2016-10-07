@@ -1,8 +1,15 @@
 package com.github.gaddsky.labyrinthServer;
 
-
+/**
+ * This interface describes the representation of maze, which will be generated and after that stored in database
+ */
 public interface ILabirinth {
-    int getCellState(int x, int y);
-    boolean canMoveInDirection(int x, int y, String direction);
+    String getName();
+
+    int getWidth();
+
+    int getHeight();
+
+    byte[][] getLabyrinth();
 
 }
