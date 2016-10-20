@@ -1,0 +1,49 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <bean id="fakeUser" class="com.github.gaddsky.labyrinthServer.domain.User" scope="singleton">
+        <constructor-arg index="0" value="Test User"/>
+        <constructor-arg index="1" value="0"/>
+        <constructor-arg index="2" value="0"/>
+        <constructor-arg index="3" value="0"/>
+    </bean>
+
+    <bean id="fakeLabyrinth" class="com.github.gaddsky.labyrinthServer.domain.Labyrinth" scope="singleton">
+        <property name="name" value="FakeLabyrinth"/>
+        <property name="width" value="4"/>
+        <property name="height" value="4"/>
+        <property name="map">
+            <list>
+                <list>
+                    <value>7</value>
+                    <value>3</value>
+                    <value>10</value>
+                    <value>14</value>
+                </list>
+
+                <list>
+                    <value>9</value>
+                    <value>8</value>
+                    <value>2</value>
+                    <value>6</value>
+                </list>
+
+                <list>
+                    <value>3</value>
+                    <value>10</value>
+                    <value>12</value>
+                    <value>5</value>
+                </list>
+
+                <list>
+                    <value>9</value>
+                    <value>14</value>
+                    <value>11</value>
+                    <value>12</value>
+                </list>
+
+            </list>
+        </property>
+    </bean>
+</beans>

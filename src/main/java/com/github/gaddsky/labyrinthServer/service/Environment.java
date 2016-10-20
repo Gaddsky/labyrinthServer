@@ -1,4 +1,4 @@
-package com.github.gaddsky.labyrinthServer;
+package com.github.gaddsky.labyrinthServer.service;
 
 
 public class Environment {
