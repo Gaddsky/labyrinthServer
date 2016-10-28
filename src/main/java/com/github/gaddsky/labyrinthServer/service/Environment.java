@@ -1,42 +1,46 @@
 package com.github.gaddsky.labyrinthServer.service;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Environment {
-    private boolean northWall;
-    private boolean eastWall;
-    private boolean southWall;
-    private boolean westWall;
+    private Map <String, Boolean> isWall = new HashMap<>();
 
     public Environment(boolean northWall, boolean eastWall, boolean southWall, boolean westWall) {
-        this.northWall = northWall;
-        this.eastWall = eastWall;
-        this.southWall = southWall;
-        this.westWall = westWall;
+        isWall.put("north", northWall);
+        isWall.put("east", eastWall);
+        isWall.put("south", southWall);
+        isWall.put("west", westWall);
     }
 
     public Environment(byte cellState) {
         if (cellState > 0b1111) {
             throw new IllegalArgumentException("Illegal cell state! Only four bits allowed");
         }
-        this.northWall = (cellState & 0b1000) > 0;
-        this.eastWall = (cellState & 0b0100) > 0;
-        this.southWall = (cellState & 0b0010) > 0;
-        this.westWall = (cellState & 0b0001) > 0;
+        isWall.put("north",(cellState & 0b1000) > 0);
+        isWall.put("east", (cellState & 0b0100) > 0);
+        isWall.put("south", (cellState & 0b0010) > 0);
+        isWall.put("west", (cellState & 0b0001) > 0);
     }
 
     public boolean isNorthWall() {
-        return northWall;
+        return isWall.get("north");
     }
 
     public boolean isEastWall() {
-        return eastWall;
+        return isWall.get("east");
     }
 
     public boolean isSouthWall() {
-        return southWall;
+        return isWall.get("south");
     }
 
     public boolean isWestWall() {
-        return westWall;
+        return isWall.get("west");
     }
-}
+
+    public boolean isWall(String direction) {
+        return isWall.get(direction);
+        }
+    }
